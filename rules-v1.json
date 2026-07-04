@@ -1,0 +1,1805 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-07-03",
+  "sources": [
+    {
+      "title": "26 U.S. Code § 224 — Qualified tips (OBBBA §70201)",
+      "url": "https://www.law.cornell.edu/uscode/text/26/224",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "Treasury/IRS final regulations listing tipped occupations (IR-2026-49; Fed. Reg. 2026-07104)",
+      "url": "https://www.irs.gov/newsroom/treasury-irs-issue-final-regulations-listing-occupations-where-workers-customarily-and-regularly-receive-tips-under-the-one-big-beautiful-bill",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS Schedule 1-A (Form 1040) — phase-out rounding (round down)",
+      "url": "https://www.irs.gov/newsroom/irs-published-schedule-taxpayers-will-use-to-claim-deductions-on-no-tax-on-tips-no-tax-on-overtime-no-tax-on-car-loans-no-tax-on-seniors",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS guidance for individuals — tax year 2025 qualified tips (Notice 2025-69)",
+      "url": "https://www.irs.gov/newsroom/treasury-irs-provide-guidance-for-individuals-who-received-tips-or-overtime-during-tax-year-2025",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS tax inflation adjustments for 2026 (Rev. Proc. 2025-32)",
+      "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "RSM — final rules confirm qualifying occupations & tip definition (FICA unaffected)",
+      "url": "https://rsmus.com/insights/tax-alerts/2026/no-tax-tips-final-rules-confirm-qualifying-occupations-tip-definition.html",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS — Underpayment of estimated tax penalty (safe harbor 90/100/110%)",
+      "url": "https://www.irs.gov/payments/underpayment-of-estimated-tax-by-individuals-penalty",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS — 2026 Form 1040-ES estimated tax due dates",
+      "url": "https://www.irs.gov/faqs/estimated-tax",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "IRS Pub 501 (2025) / Rev. Proc. — standard deduction (OBBBA)",
+      "url": "https://www.irs.gov/publications/p501",
+      "checkedAt": "2026-07-03"
+    },
+    {
+      "title": "SSA — 2026 Social Security wage base $184,500; SE tax 15.3% (12.4%+2.9%)",
+      "url": "https://www.ssa.gov/oact/cola/cbb.html",
+      "checkedAt": "2026-07-03"
+    }
+  ],
+  "taxYears": {
+    "2025": {
+      "deductionCapPerReturn": 25000,
+      "phaseOut": {
+        "startSingle": 150000,
+        "startJoint": 300000,
+        "reductionPer1000": 100
+      },
+      "eligibility": {
+        "marriedMustFileJointly": true,
+        "ssnRequired": true
+      },
+      "brackets": {
+        "single": [
+          {
+            "upTo": 11925,
+            "rate": 0.1
+          },
+          {
+            "upTo": 48475,
+            "rate": 0.12
+          },
+          {
+            "upTo": 103350,
+            "rate": 0.22
+          },
+          {
+            "upTo": 197300,
+            "rate": 0.24
+          },
+          {
+            "upTo": 250525,
+            "rate": 0.32
+          },
+          {
+            "upTo": 626350,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "marriedJoint": [
+          {
+            "upTo": 23850,
+            "rate": 0.1
+          },
+          {
+            "upTo": 96950,
+            "rate": 0.12
+          },
+          {
+            "upTo": 206700,
+            "rate": 0.22
+          },
+          {
+            "upTo": 394600,
+            "rate": 0.24
+          },
+          {
+            "upTo": 501050,
+            "rate": 0.32
+          },
+          {
+            "upTo": 751600,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "marriedSeparate": [
+          {
+            "upTo": 11925,
+            "rate": 0.1
+          },
+          {
+            "upTo": 48475,
+            "rate": 0.12
+          },
+          {
+            "upTo": 103350,
+            "rate": 0.22
+          },
+          {
+            "upTo": 197300,
+            "rate": 0.24
+          },
+          {
+            "upTo": 250525,
+            "rate": 0.32
+          },
+          {
+            "upTo": 375800,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "headOfHousehold": [
+          {
+            "upTo": 17000,
+            "rate": 0.1
+          },
+          {
+            "upTo": 64850,
+            "rate": 0.12
+          },
+          {
+            "upTo": 103350,
+            "rate": 0.22
+          },
+          {
+            "upTo": 197300,
+            "rate": 0.24
+          },
+          {
+            "upTo": 250500,
+            "rate": 0.32
+          },
+          {
+            "upTo": 626350,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ]
+      },
+      "occupations": [
+        {
+          "id": "ttoc_101",
+          "label": "Bartenders",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_102",
+          "label": "Wait Staff",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_103",
+          "label": "Food or Beverage Servers, Non-restaurant",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_104",
+          "label": "Dining Room and Cafeteria Attendants and Bartender Helpers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_105",
+          "label": "Chefs and Cooks",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_106",
+          "label": "Food Preparation Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_107",
+          "label": "Fast Food and Counter Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_108",
+          "label": "Dishwashers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_109",
+          "label": "Host Staff, Restaurant, Lounge, and Coffee Shop",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_110",
+          "label": "Bakers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_201",
+          "label": "Gambling Dealers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_202",
+          "label": "Gambling Change Persons and Booth Cashiers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_203",
+          "label": "Gambling Cage Workers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_204",
+          "label": "Gambling and Sports Book Writers and Runners",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_205",
+          "label": "Dancers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_206",
+          "label": "Musicians and Singers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_207",
+          "label": "Disc Jockeys, Except Radio",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_208",
+          "label": "Entertainers and Performers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_209",
+          "label": "Digital Content Creators",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_210",
+          "label": "Ushers, Lobby Attendants, and Ticket Takers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_211",
+          "label": "Locker Room, Coatroom, and Dressing Room Attendants",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_301",
+          "label": "Baggage Porters and Bellhops",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_302",
+          "label": "Concierges",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_303",
+          "label": "Hotel, Motel, and Resort Desk Clerks",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_304",
+          "label": "Maids and Housekeeping Cleaners",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_401",
+          "label": "Home Maintenance and Repair Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_402",
+          "label": "Home Landscaping and Groundskeeping Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_403",
+          "label": "Home Electricians",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_404",
+          "label": "Home Plumbers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_405",
+          "label": "Home Heating and Air Conditioning Mechanics and Installers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_406",
+          "label": "Home Appliance Installers and Repairers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_407",
+          "label": "Home Cleaning Service Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_408",
+          "label": "Locksmiths",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_409",
+          "label": "Roadside Assistance Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_501",
+          "label": "Personal Care and Service Workers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_502",
+          "label": "Private Event Planners",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_503",
+          "label": "Private Event and Portrait Photographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_504",
+          "label": "Private Event Videographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_505",
+          "label": "Event Officiants",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_506",
+          "label": "Pet and Show Animal Caretakers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_507",
+          "label": "Tutors",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_508",
+          "label": "Nannies and Babysitters",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_509",
+          "label": "Visual Artists",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_510",
+          "label": "Floral Designers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_601",
+          "label": "Skincare Specialists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_602",
+          "label": "Massage Therapists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_603",
+          "label": "Barbers, Hairdressers, Hairstylists, and Cosmetologists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_604",
+          "label": "Shampooers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_605",
+          "label": "Manicurists and Pedicurists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_606",
+          "label": "Eyebrow and Eyelash Technicians",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_607",
+          "label": "Makeup Artists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_608",
+          "label": "Exercise Trainers and Group Fitness Instructors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_609",
+          "label": "Tattoo Artists and Piercers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_610",
+          "label": "Tailors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_611",
+          "label": "Shoe and Leather Workers and Repairers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_701",
+          "label": "Golf Caddies",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_702",
+          "label": "Self-Enrichment Teachers",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_703",
+          "label": "Recreational and Tour Pilots",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_704",
+          "label": "Tour Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_705",
+          "label": "Travel Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_706",
+          "label": "Sports and Recreation Instructors",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_801",
+          "label": "Parking and Valet Attendants",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_802",
+          "label": "Taxi and Rideshare Drivers and Chauffeurs",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_803",
+          "label": "Shuttle Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_804",
+          "label": "Goods Delivery People",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_805",
+          "label": "Personal Vehicle and Equipment Cleaners",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_806",
+          "label": "Private and Charter Bus Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_807",
+          "label": "Water Taxi Operators and Charter Boat Workers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_808",
+          "label": "Rickshaw, Pedicab, and Carriage Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_809",
+          "label": "Home Movers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_810",
+          "label": "Gas Pump Attendant",
+          "category": "transportation_delivery"
+        }
+      ],
+      "standardDeduction": {
+        "single": 15750,
+        "marriedSeparate": 15750,
+        "marriedJoint": 31500,
+        "headOfHousehold": 23625
+      }
+    },
+    "2026": {
+      "deductionCapPerReturn": 25000,
+      "phaseOut": {
+        "startSingle": 150000,
+        "startJoint": 300000,
+        "reductionPer1000": 100
+      },
+      "eligibility": {
+        "marriedMustFileJointly": true,
+        "ssnRequired": true
+      },
+      "brackets": {
+        "single": [
+          {
+            "upTo": 12400,
+            "rate": 0.1
+          },
+          {
+            "upTo": 50400,
+            "rate": 0.12
+          },
+          {
+            "upTo": 105700,
+            "rate": 0.22
+          },
+          {
+            "upTo": 201775,
+            "rate": 0.24
+          },
+          {
+            "upTo": 256225,
+            "rate": 0.32
+          },
+          {
+            "upTo": 640600,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "marriedJoint": [
+          {
+            "upTo": 24800,
+            "rate": 0.1
+          },
+          {
+            "upTo": 100800,
+            "rate": 0.12
+          },
+          {
+            "upTo": 211400,
+            "rate": 0.22
+          },
+          {
+            "upTo": 403550,
+            "rate": 0.24
+          },
+          {
+            "upTo": 512450,
+            "rate": 0.32
+          },
+          {
+            "upTo": 768700,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "marriedSeparate": [
+          {
+            "upTo": 12400,
+            "rate": 0.1
+          },
+          {
+            "upTo": 50400,
+            "rate": 0.12
+          },
+          {
+            "upTo": 105700,
+            "rate": 0.22
+          },
+          {
+            "upTo": 201775,
+            "rate": 0.24
+          },
+          {
+            "upTo": 256225,
+            "rate": 0.32
+          },
+          {
+            "upTo": 384350,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ],
+        "headOfHousehold": [
+          {
+            "upTo": 17700,
+            "rate": 0.1
+          },
+          {
+            "upTo": 67450,
+            "rate": 0.12
+          },
+          {
+            "upTo": 105700,
+            "rate": 0.22
+          },
+          {
+            "upTo": 201775,
+            "rate": 0.24
+          },
+          {
+            "upTo": 256200,
+            "rate": 0.32
+          },
+          {
+            "upTo": 640600,
+            "rate": 0.35
+          },
+          {
+            "rate": 0.37
+          }
+        ]
+      },
+      "occupations": [
+        {
+          "id": "ttoc_101",
+          "label": "Bartenders",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_102",
+          "label": "Wait Staff",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_103",
+          "label": "Food or Beverage Servers, Non-restaurant",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_104",
+          "label": "Dining Room and Cafeteria Attendants and Bartender Helpers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_105",
+          "label": "Chefs and Cooks",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_106",
+          "label": "Food Preparation Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_107",
+          "label": "Fast Food and Counter Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_108",
+          "label": "Dishwashers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_109",
+          "label": "Host Staff, Restaurant, Lounge, and Coffee Shop",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_110",
+          "label": "Bakers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_201",
+          "label": "Gambling Dealers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_202",
+          "label": "Gambling Change Persons and Booth Cashiers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_203",
+          "label": "Gambling Cage Workers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_204",
+          "label": "Gambling and Sports Book Writers and Runners",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_205",
+          "label": "Dancers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_206",
+          "label": "Musicians and Singers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_207",
+          "label": "Disc Jockeys, Except Radio",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_208",
+          "label": "Entertainers and Performers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_209",
+          "label": "Digital Content Creators",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_210",
+          "label": "Ushers, Lobby Attendants, and Ticket Takers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_211",
+          "label": "Locker Room, Coatroom, and Dressing Room Attendants",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_301",
+          "label": "Baggage Porters and Bellhops",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_302",
+          "label": "Concierges",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_303",
+          "label": "Hotel, Motel, and Resort Desk Clerks",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_304",
+          "label": "Maids and Housekeeping Cleaners",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_401",
+          "label": "Home Maintenance and Repair Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_402",
+          "label": "Home Landscaping and Groundskeeping Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_403",
+          "label": "Home Electricians",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_404",
+          "label": "Home Plumbers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_405",
+          "label": "Home Heating and Air Conditioning Mechanics and Installers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_406",
+          "label": "Home Appliance Installers and Repairers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_407",
+          "label": "Home Cleaning Service Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_408",
+          "label": "Locksmiths",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_409",
+          "label": "Roadside Assistance Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_501",
+          "label": "Personal Care and Service Workers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_502",
+          "label": "Private Event Planners",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_503",
+          "label": "Private Event and Portrait Photographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_504",
+          "label": "Private Event Videographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_505",
+          "label": "Event Officiants",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_506",
+          "label": "Pet and Show Animal Caretakers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_507",
+          "label": "Tutors",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_508",
+          "label": "Nannies and Babysitters",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_509",
+          "label": "Visual Artists",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_510",
+          "label": "Floral Designers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_601",
+          "label": "Skincare Specialists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_602",
+          "label": "Massage Therapists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_603",
+          "label": "Barbers, Hairdressers, Hairstylists, and Cosmetologists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_604",
+          "label": "Shampooers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_605",
+          "label": "Manicurists and Pedicurists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_606",
+          "label": "Eyebrow and Eyelash Technicians",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_607",
+          "label": "Makeup Artists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_608",
+          "label": "Exercise Trainers and Group Fitness Instructors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_609",
+          "label": "Tattoo Artists and Piercers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_610",
+          "label": "Tailors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_611",
+          "label": "Shoe and Leather Workers and Repairers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_701",
+          "label": "Golf Caddies",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_702",
+          "label": "Self-Enrichment Teachers",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_703",
+          "label": "Recreational and Tour Pilots",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_704",
+          "label": "Tour Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_705",
+          "label": "Travel Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_706",
+          "label": "Sports and Recreation Instructors",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_801",
+          "label": "Parking and Valet Attendants",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_802",
+          "label": "Taxi and Rideshare Drivers and Chauffeurs",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_803",
+          "label": "Shuttle Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_804",
+          "label": "Goods Delivery People",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_805",
+          "label": "Personal Vehicle and Equipment Cleaners",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_806",
+          "label": "Private and Charter Bus Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_807",
+          "label": "Water Taxi Operators and Charter Boat Workers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_808",
+          "label": "Rickshaw, Pedicab, and Carriage Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_809",
+          "label": "Home Movers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_810",
+          "label": "Gas Pump Attendant",
+          "category": "transportation_delivery"
+        }
+      ],
+      "standardDeduction": {
+        "single": 16100,
+        "marriedSeparate": 16100,
+        "marriedJoint": 32200,
+        "headOfHousehold": 24150
+      },
+      "safeHarbor": {
+        "currentYearFactor": 0.9,
+        "priorYearFactor": 1.0,
+        "priorYearFactorHighAGI": 1.1,
+        "highAGIThreshold": 150000,
+        "highAGIThresholdMFS": 75000
+      },
+      "estimatedTaxDueDates": [
+        "2026-04-15",
+        "2026-06-15",
+        "2026-09-15",
+        "2027-01-15"
+      ],
+      "selfEmployment": {
+        "taxRate": 0.153,
+        "socialSecurityRate": 0.124,
+        "medicareRate": 0.029,
+        "netEarningsFactor": 0.9235,
+        "socialSecurityWageBase": 184500,
+        "halfDeductible": true
+      }
+    },
+    "2027": {
+      "deductionCapPerReturn": 25000,
+      "phaseOut": {
+        "startSingle": 150000,
+        "startJoint": 300000,
+        "reductionPer1000": 100
+      },
+      "eligibility": {
+        "marriedMustFileJointly": true,
+        "ssnRequired": true
+      },
+      "brackets": {},
+      "occupations": [
+        {
+          "id": "ttoc_101",
+          "label": "Bartenders",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_102",
+          "label": "Wait Staff",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_103",
+          "label": "Food or Beverage Servers, Non-restaurant",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_104",
+          "label": "Dining Room and Cafeteria Attendants and Bartender Helpers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_105",
+          "label": "Chefs and Cooks",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_106",
+          "label": "Food Preparation Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_107",
+          "label": "Fast Food and Counter Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_108",
+          "label": "Dishwashers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_109",
+          "label": "Host Staff, Restaurant, Lounge, and Coffee Shop",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_110",
+          "label": "Bakers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_201",
+          "label": "Gambling Dealers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_202",
+          "label": "Gambling Change Persons and Booth Cashiers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_203",
+          "label": "Gambling Cage Workers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_204",
+          "label": "Gambling and Sports Book Writers and Runners",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_205",
+          "label": "Dancers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_206",
+          "label": "Musicians and Singers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_207",
+          "label": "Disc Jockeys, Except Radio",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_208",
+          "label": "Entertainers and Performers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_209",
+          "label": "Digital Content Creators",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_210",
+          "label": "Ushers, Lobby Attendants, and Ticket Takers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_211",
+          "label": "Locker Room, Coatroom, and Dressing Room Attendants",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_301",
+          "label": "Baggage Porters and Bellhops",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_302",
+          "label": "Concierges",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_303",
+          "label": "Hotel, Motel, and Resort Desk Clerks",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_304",
+          "label": "Maids and Housekeeping Cleaners",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_401",
+          "label": "Home Maintenance and Repair Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_402",
+          "label": "Home Landscaping and Groundskeeping Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_403",
+          "label": "Home Electricians",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_404",
+          "label": "Home Plumbers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_405",
+          "label": "Home Heating and Air Conditioning Mechanics and Installers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_406",
+          "label": "Home Appliance Installers and Repairers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_407",
+          "label": "Home Cleaning Service Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_408",
+          "label": "Locksmiths",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_409",
+          "label": "Roadside Assistance Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_501",
+          "label": "Personal Care and Service Workers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_502",
+          "label": "Private Event Planners",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_503",
+          "label": "Private Event and Portrait Photographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_504",
+          "label": "Private Event Videographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_505",
+          "label": "Event Officiants",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_506",
+          "label": "Pet and Show Animal Caretakers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_507",
+          "label": "Tutors",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_508",
+          "label": "Nannies and Babysitters",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_509",
+          "label": "Visual Artists",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_510",
+          "label": "Floral Designers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_601",
+          "label": "Skincare Specialists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_602",
+          "label": "Massage Therapists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_603",
+          "label": "Barbers, Hairdressers, Hairstylists, and Cosmetologists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_604",
+          "label": "Shampooers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_605",
+          "label": "Manicurists and Pedicurists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_606",
+          "label": "Eyebrow and Eyelash Technicians",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_607",
+          "label": "Makeup Artists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_608",
+          "label": "Exercise Trainers and Group Fitness Instructors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_609",
+          "label": "Tattoo Artists and Piercers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_610",
+          "label": "Tailors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_611",
+          "label": "Shoe and Leather Workers and Repairers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_701",
+          "label": "Golf Caddies",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_702",
+          "label": "Self-Enrichment Teachers",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_703",
+          "label": "Recreational and Tour Pilots",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_704",
+          "label": "Tour Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_705",
+          "label": "Travel Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_706",
+          "label": "Sports and Recreation Instructors",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_801",
+          "label": "Parking and Valet Attendants",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_802",
+          "label": "Taxi and Rideshare Drivers and Chauffeurs",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_803",
+          "label": "Shuttle Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_804",
+          "label": "Goods Delivery People",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_805",
+          "label": "Personal Vehicle and Equipment Cleaners",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_806",
+          "label": "Private and Charter Bus Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_807",
+          "label": "Water Taxi Operators and Charter Boat Workers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_808",
+          "label": "Rickshaw, Pedicab, and Carriage Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_809",
+          "label": "Home Movers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_810",
+          "label": "Gas Pump Attendant",
+          "category": "transportation_delivery"
+        }
+      ]
+    },
+    "2028": {
+      "deductionCapPerReturn": 25000,
+      "phaseOut": {
+        "startSingle": 150000,
+        "startJoint": 300000,
+        "reductionPer1000": 100
+      },
+      "eligibility": {
+        "marriedMustFileJointly": true,
+        "ssnRequired": true
+      },
+      "brackets": {},
+      "occupations": [
+        {
+          "id": "ttoc_101",
+          "label": "Bartenders",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_102",
+          "label": "Wait Staff",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_103",
+          "label": "Food or Beverage Servers, Non-restaurant",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_104",
+          "label": "Dining Room and Cafeteria Attendants and Bartender Helpers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_105",
+          "label": "Chefs and Cooks",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_106",
+          "label": "Food Preparation Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_107",
+          "label": "Fast Food and Counter Workers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_108",
+          "label": "Dishwashers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_109",
+          "label": "Host Staff, Restaurant, Lounge, and Coffee Shop",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_110",
+          "label": "Bakers",
+          "category": "beverage_food_service"
+        },
+        {
+          "id": "ttoc_201",
+          "label": "Gambling Dealers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_202",
+          "label": "Gambling Change Persons and Booth Cashiers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_203",
+          "label": "Gambling Cage Workers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_204",
+          "label": "Gambling and Sports Book Writers and Runners",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_205",
+          "label": "Dancers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_206",
+          "label": "Musicians and Singers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_207",
+          "label": "Disc Jockeys, Except Radio",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_208",
+          "label": "Entertainers and Performers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_209",
+          "label": "Digital Content Creators",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_210",
+          "label": "Ushers, Lobby Attendants, and Ticket Takers",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_211",
+          "label": "Locker Room, Coatroom, and Dressing Room Attendants",
+          "category": "entertainment_events"
+        },
+        {
+          "id": "ttoc_301",
+          "label": "Baggage Porters and Bellhops",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_302",
+          "label": "Concierges",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_303",
+          "label": "Hotel, Motel, and Resort Desk Clerks",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_304",
+          "label": "Maids and Housekeeping Cleaners",
+          "category": "hospitality_guest_services"
+        },
+        {
+          "id": "ttoc_401",
+          "label": "Home Maintenance and Repair Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_402",
+          "label": "Home Landscaping and Groundskeeping Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_403",
+          "label": "Home Electricians",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_404",
+          "label": "Home Plumbers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_405",
+          "label": "Home Heating and Air Conditioning Mechanics and Installers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_406",
+          "label": "Home Appliance Installers and Repairers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_407",
+          "label": "Home Cleaning Service Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_408",
+          "label": "Locksmiths",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_409",
+          "label": "Roadside Assistance Workers",
+          "category": "home_services"
+        },
+        {
+          "id": "ttoc_501",
+          "label": "Personal Care and Service Workers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_502",
+          "label": "Private Event Planners",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_503",
+          "label": "Private Event and Portrait Photographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_504",
+          "label": "Private Event Videographers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_505",
+          "label": "Event Officiants",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_506",
+          "label": "Pet and Show Animal Caretakers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_507",
+          "label": "Tutors",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_508",
+          "label": "Nannies and Babysitters",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_509",
+          "label": "Visual Artists",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_510",
+          "label": "Floral Designers",
+          "category": "personal_services"
+        },
+        {
+          "id": "ttoc_601",
+          "label": "Skincare Specialists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_602",
+          "label": "Massage Therapists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_603",
+          "label": "Barbers, Hairdressers, Hairstylists, and Cosmetologists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_604",
+          "label": "Shampooers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_605",
+          "label": "Manicurists and Pedicurists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_606",
+          "label": "Eyebrow and Eyelash Technicians",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_607",
+          "label": "Makeup Artists",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_608",
+          "label": "Exercise Trainers and Group Fitness Instructors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_609",
+          "label": "Tattoo Artists and Piercers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_610",
+          "label": "Tailors",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_611",
+          "label": "Shoe and Leather Workers and Repairers",
+          "category": "personal_appearance_wellness"
+        },
+        {
+          "id": "ttoc_701",
+          "label": "Golf Caddies",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_702",
+          "label": "Self-Enrichment Teachers",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_703",
+          "label": "Recreational and Tour Pilots",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_704",
+          "label": "Tour Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_705",
+          "label": "Travel Guides",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_706",
+          "label": "Sports and Recreation Instructors",
+          "category": "recreation_instruction"
+        },
+        {
+          "id": "ttoc_801",
+          "label": "Parking and Valet Attendants",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_802",
+          "label": "Taxi and Rideshare Drivers and Chauffeurs",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_803",
+          "label": "Shuttle Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_804",
+          "label": "Goods Delivery People",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_805",
+          "label": "Personal Vehicle and Equipment Cleaners",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_806",
+          "label": "Private and Charter Bus Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_807",
+          "label": "Water Taxi Operators and Charter Boat Workers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_808",
+          "label": "Rickshaw, Pedicab, and Carriage Drivers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_809",
+          "label": "Home Movers",
+          "category": "transportation_delivery"
+        },
+        {
+          "id": "ttoc_810",
+          "label": "Gas Pump Attendant",
+          "category": "transportation_delivery"
+        }
+      ]
+    }
+  }
+}
