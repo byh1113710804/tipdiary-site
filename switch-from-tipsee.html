@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switch from TipSee to TipDiary — Import Your Tips (CSV Guide) | TipDiary</title>
+<meta name="description" content="Moving from TipSee to TipDiary? Export your shift and tip history, save it as CSV, and import it into TipDiary with simple column mapping. Honest step-by-step guide.">
+<link rel="canonical" href="https://byh1113710804.github.io/tipdiary-site/switch-from-tipsee.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TipDiary">
+<meta property="og:title" content="Switch from TipSee to TipDiary — Import Your Tips (CSV Guide)">
+<meta property="og:description" content="Export your TipSee data, save it as CSV, and import it into TipDiary with column mapping. Step-by-step.">
+<meta property="og:url" content="https://byh1113710804.github.io/tipdiary-site/switch-from-tipsee.html">
+<style>
+  :root{--ink:#1c1b19;--muted:#6b6862;--accent:#C8811F;--accent-link:#a56813;--line:#e7e1d6;--paper:#faf8f4;--card:#fff;--note-bg:#fdf6ea;--note-line:#e3b768}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;max-width:720px;margin:0 auto;padding:32px 20px 64px;line-height:1.65;color:var(--ink);background:var(--paper)}
+  a{color:var(--accent-link)}a:hover{color:var(--accent)}
+  h1{font-size:1.9rem;line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .1em;border-bottom:2px solid var(--accent);padding-bottom:12px}
+  h2{font-size:1.25rem;letter-spacing:-.01em;margin:2em 0 .4em}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;font-weight:700;color:var(--accent);margin:0 0 6px}
+  .lede{font-size:1.06rem;color:#39362f}
+  .note{background:var(--note-bg);border-left:3px solid var(--note-line);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.92rem;color:#5c4a2c;margin:18px 0}
+  .step{display:flex;gap:14px;align-items:baseline;margin:1.7em 0 .3em}
+  .step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;transform:translateY(3px)}
+  .step h2{margin:0;border:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  code{background:#f1ece2;border-radius:5px;padding:1px 6px;font-size:.86em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .csvline{background:#f6f1e8;border:1px solid var(--line);border-radius:9px;padding:12px 14px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;white-space:nowrap}
+  .cta{background:linear-gradient(180deg,#fbf3e6,#f7ecd8);border:1px solid #ecdcbf;border-radius:14px;padding:22px 20px;margin-top:34px;text-align:center}
+  .cta h2{margin:.1em 0 .3em;font-size:1.2rem;border:0}
+  .cta p{color:#5b4d33;margin:.2em auto .9em;max-width:34em}
+  .appbtn{display:inline-block;background:var(--ink);color:#fff;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:10px}
+  .appbtn:hover{background:#000;color:#fff}
+  .appbtn small{display:block;font-weight:400;font-size:.68rem;opacity:.8}
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+  footer a{margin-right:16px;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">TipDiary Guides</p>
+  <h1>Switch from TipSee to TipDiary</h1>
+  <p class="lede">Ready to move your tip history from TipSee to TipDiary? People usually switch because they want local-first storage with no account — your data stays on your device. Here's how to bring your shifts with you.</p>
+</header>
+
+<main>
+  <div class="note">
+    <strong>Honest heads-up:</strong> TipDiary imports a generic CSV file and lets you map the columns yourself. There's no one-click TipSee import, so the steps below use a plain spreadsheet export — which keeps working even if TipSee rearranges its menus.
+  </div>
+
+  <div class="step"><span class="n">1</span><h2>Export your data from TipSee</h2></div>
+  <p>Open TipSee and look for an <strong>Export</strong> option in its settings or share menu. Most tip trackers can email you a spreadsheet or send your shift log to another app. Export your full history and send it somewhere you can open on a computer or in a spreadsheet app (email it to yourself, or save it to Files/Drive).</p>
+
+  <div class="step"><span class="n">2</span><h2>Save it as a CSV file</h2></div>
+  <p>If you received a spreadsheet or an email attachment, open it in any spreadsheet app — Apple Numbers, Microsoft Excel, or Google Sheets — and choose <strong>Export / Save As → CSV</strong>. If TipSee already gave you a <code>.csv</code> file, you can skip this step.</p>
+
+  <div class="step"><span class="n">3</span><h2>Match your columns to TipDiary's</h2></div>
+  <p>TipDiary reads these columns. You don't have to rename anything in advance — during import you'll map each of your columns to one of these fields:</p>
+  <div class="csvline">date, job, cash_tips, card_tips, tip_in, tip_out, hours, sales, note</div>
+  <table>
+    <tr><th>Column</th><th>What goes in it</th></tr>
+    <tr><td><code>date</code></td><td>Shift date (e.g. <code>2026-07-04</code> or <code>7/4/2026</code>)</td></tr>
+    <tr><td><code>job</code></td><td>Job or employer name</td></tr>
+    <tr><td><code>cash_tips</code></td><td>Cash tips for the shift</td></tr>
+    <tr><td><code>card_tips</code></td><td>Credit/debit card tips</td></tr>
+    <tr><td><code>tip_in</code></td><td>Tips you received from a tip pool (tip-in)</td></tr>
+    <tr><td><code>tip_out</code></td><td>Tips you paid out to others (tip-out)</td></tr>
+    <tr><td><code>hours</code></td><td>Hours worked</td></tr>
+    <tr><td><code>sales</code></td><td>Your total sales for the shift (optional)</td></tr>
+    <tr><td><code>note</code></td><td>Anything else you want to remember (optional)</td></tr>
+  </table>
+
+  <div class="step"><span class="n">4</span><h2>Import into TipDiary</h2></div>
+  <p>In TipDiary, go to <strong>Settings → Import CSV</strong>, pick your file, then map each column to the matching TipDiary field. Check the preview so amounts and dates look right, then confirm the import. Your shifts land in your history, and the No Tax on Tips math updates automatically.</p>
+
+  <div class="note">
+    <strong>Tips for a clean import:</strong> keep one row per shift; enter tip and sales amounts as plain numbers (no <code>$</code> needed); and use a consistent date format. You can always edit or delete individual shifts afterward.
+  </div>
+
+  <p style="margin-top:22px">Curious what the deduction is worth first? Try the <a href="index.html">No Tax on Tips Calculator</a>.</p>
+
+  <div class="cta">
+    <h2>Track every shift. Export your tax packet in one tap.</h2>
+    <p>TipDiary is the 30-second daily tip diary for U.S. service workers — private by default, with the deduction math built in.</p>
+    <a class="appbtn" href="https://apps.apple.com/us/app/tipdiary-tip-tracker/id6787304736">Download on the App Store<small>iPhone &amp; iPad</small></a>
+  </div>
+</main>
+
+<footer>
+  <div class="links">
+    <a href="index.html">Calculator</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="switch-from-serverlife.html">Switch from ServerLife</a>
+    <a href="https://apps.apple.com/us/app/tipdiary-tip-tracker/id6787304736">App Store</a>
+  </div>
+  <p>TipDiary is an independent app and is not affiliated with TipSee or any other tip-tracking app. Product names are the property of their respective owners.</p>
+</footer>
+
+</body>
+</html>

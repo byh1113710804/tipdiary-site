@@ -1,8 +1,433 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TipDiary</title>
-<style>body{font-family:-apple-system,system-ui,sans-serif;max-width:680px;margin:60px auto;padding:0 20px;color:#1c1b19}h1 span{color:#C8811F}</style></head>
-<body><h1>Tip<span>Diary</span></h1>
-<p>The 30-second daily tip diary for U.S. service workers — with the "No Tax on Tips" deduction math built in. Log every shift free, forever. Pro does the tax math.</p>
-<p>Support: <a href="mailto:baiyuhong88@gmail.com">baiyuhong88@gmail.com</a></p>
-<p><a href="privacy.html">Privacy Policy</a></p>
-</body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No Tax on Tips Calculator (2025–2028) — Estimate Your Tips Deduction | TipDiary</title>
+<meta name="description" content="Estimate your federal No Tax on Tips deduction for 2025–2028 (OBBBA): the $25,000 cap, income phase-out, and your tax-savings range. Free, private, no sign-up. Estimates only — not tax advice.">
+<link rel="canonical" href="https://byh1113710804.github.io/tipdiary-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TipDiary">
+<meta property="og:title" content="No Tax on Tips Calculator (2025–2028) — Estimate Your Tips Deduction">
+<meta property="og:description" content="Estimate your federal No Tax on Tips deduction: the $25,000 cap, income phase-out, and your tax-savings range. Free and private. Not tax advice.">
+<meta property="og:url" content="https://byh1113710804.github.io/tipdiary-site/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No Tax on Tips Calculator (2025–2028)">
+<meta name="twitter:description" content="Estimate your federal tips deduction: cap, phase-out, and tax-savings range. Free, private, not tax advice.">
+<style>
+  :root{
+    --ink:#1c1b19; --muted:#6b6862; --accent:#C8811F;
+    --accent-link:#a56813; --line:#e7e1d6; --paper:#faf8f4; --card:#ffffff;
+    --note-bg:#fdf6ea; --note-line:#e3b768;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    max-width:720px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;
+    color:var(--ink);background:var(--paper);
+  }
+  a{color:var(--accent-link)}
+  a:hover{color:var(--accent)}
+  h1{font-size:2rem;line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .1em;border-bottom:2px solid var(--accent);padding-bottom:12px}
+  h1 .brand{color:var(--accent)}
+  h2{font-size:1.35rem;letter-spacing:-.01em;margin:2.4em 0 .5em}
+  h3{font-size:1.05rem;margin:1.4em 0 .3em}
+  .lede{font-size:1.08rem;color:#39362f}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;font-weight:700;color:var(--accent);margin:0 0 6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(60,50,30,.04),0 8px 24px rgba(60,50,30,.035)}
+  form.card{margin-top:22px}
+  .field{margin:0 0 16px}
+  .field:last-child{margin-bottom:0}
+  label{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
+  .hint{font-weight:400;color:var(--muted);font-size:.82rem;margin-top:3px}
+  input[type=text],select{
+    width:100%;font:inherit;color:var(--ink);background:#fff;
+    border:1px solid #d9d2c5;border-radius:9px;padding:11px 12px;appearance:none;
+  }
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23998' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
+  input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(200,129,31,.16)}
+  .money-input{position:relative}
+  .money-input span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+  .money-input input{padding-left:26px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}}
+  .check{display:flex;align-items:flex-start;gap:10px;font-weight:600;font-size:.92rem;cursor:pointer}
+  .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+  .se-wrap{margin-top:12px;display:none}
+  .se-wrap.show{display:block}
+  button.primary{
+    width:100%;font:inherit;font-weight:700;font-size:1rem;color:#fff;background:var(--accent);
+    border:none;border-radius:10px;padding:13px 16px;margin-top:4px;cursor:pointer;
+  }
+  button.primary:hover{background:#b3721a}
+  /* result */
+  #result{margin-top:22px;display:none}
+  #result.show{display:block}
+  .result-lead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:2px}
+  .result-lead .num{font-size:2.3rem;font-weight:800;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:tabular-nums}
+  .result-lead .lbl{font-size:.95rem;color:var(--muted)}
+  .savings{font-size:1.05rem;margin:2px 0 16px}
+  .savings b{font-variant-numeric:tabular-nums}
+  .stats{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:9px}
+  .stat{display:flex;justify-content:space-between;gap:12px;font-size:.95rem}
+  .stat .k{color:var(--muted)}
+  .stat .v{font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+  .notes{margin-top:16px;display:grid;gap:9px}
+  .note{background:var(--note-bg);border-left:3px solid var(--note-line);border-radius:0 8px 8px 0;padding:9px 12px;font-size:.88rem;color:#5c4a2c}
+  .disclaimer{font-size:.82rem;color:var(--muted);margin-top:14px}
+  .placeholder{color:var(--muted);font-size:.95rem}
+  /* CTA */
+  .cta{background:linear-gradient(180deg,#fbf3e6,#f7ecd8);border:1px solid #ecdcbf;border-radius:14px;padding:22px 20px;margin-top:34px;text-align:center}
+  .cta h2{margin:.1em 0 .3em;font-size:1.25rem;border:0}
+  .cta p{color:#5b4d33;margin:.2em auto .9em;max-width:34em}
+  .appbtn{display:inline-block;background:var(--ink);color:#fff;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:10px}
+  .appbtn:hover{background:#000;color:#fff}
+  .appbtn small{display:block;font-weight:400;font-size:.68rem;opacity:.8;letter-spacing:.02em}
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:4px 0}
+  summary{cursor:pointer;font-weight:600;padding:11px 2px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--accent);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details p{margin:.1em 0 14px;color:#3c3830}
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+  footer .links{margin-bottom:10px}
+  footer a{margin-right:16px;white-space:nowrap}
+  .verified{font-size:.82rem}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">TipDiary</p>
+  <h1>No Tax on Tips Calculator</h1>
+  <p class="lede">Estimate your federal <strong>tips deduction</strong> for tax years 2025–2028 under the One Big Beautiful Bill Act (OBBBA). Enter a few details and see your deduction, the $25,000 cap, any income phase-out, and a plain tax-savings range.</p>
+</header>
+
+<main>
+  <form id="calc" class="card" novalidate>
+    <div class="row2">
+      <div class="field">
+        <label for="year">Tax year</label>
+        <select id="year" name="year">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+        </select>
+        <div class="hint">2027–2028 are covered by the law, but IRS bracket tables aren't published yet.</div>
+      </div>
+      <div class="field">
+        <label for="filing">Filing status</label>
+        <select id="filing" name="filing">
+          <option value="single" selected>Single</option>
+          <option value="marriedJoint">Married filing jointly</option>
+          <option value="headOfHousehold">Head of household</option>
+          <option value="marriedSeparate">Married filing separately</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="tips">Annual qualified tips</label>
+      <div class="money-input">
+        <span>$</span>
+        <input id="tips" name="tips" type="text" inputmode="decimal" autocomplete="off" placeholder="12,000">
+      </div>
+      <div class="hint">Your reported tips for the whole year (cash + card, net of any tip-out).</div>
+    </div>
+
+    <div class="field">
+      <label for="magi">Household income (MAGI)</label>
+      <select id="magi" name="magi">
+        <option value="">I'm not sure</option>
+        <option value="below100k">Under $100k</option>
+        <option value="from100kTo150k">$100k–$150k</option>
+        <option value="from150kTo250k">$150k–$250k</option>
+        <option value="from250kTo400k">$250k–$400k</option>
+        <option value="above400k">Over $400k</option>
+      </select>
+      <div class="hint">Used for the income phase-out and to pick your tax bracket.</div>
+    </div>
+
+    <div class="field">
+      <label for="occupation">Occupation</label>
+      <select id="occupation" name="occupation">
+        <option value="">Not sure / not listed</option>
+      </select>
+      <div class="hint">The deduction only applies to occupations on the Treasury tipped-occupation list.</div>
+    </div>
+
+    <div class="field">
+      <label class="check" for="se">
+        <input id="se" name="se" type="checkbox">
+        <span>I'm self-employed (independent contractor, gig work, own business)</span>
+      </label>
+      <div class="se-wrap" id="seWrap">
+        <label for="seNet">Business net profit (optional)</label>
+        <div class="money-input">
+          <span>$</span>
+          <input id="seNet" name="seNet" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 18,000">
+        </div>
+        <div class="hint">Your deduction can't exceed your net profit from the tipped business.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="primary">Estimate my deduction</button>
+  </form>
+
+  <section id="result" class="card" aria-live="polite">
+    <div id="resultBody"></div>
+  </section>
+  <p id="placeholder" class="placeholder" style="margin-top:16px">Enter your annual tips above to see your estimate.</p>
+
+  <div class="cta">
+    <h2>Track every shift. Export your tax packet in one tap.</h2>
+    <p>TipDiary is the 30-second daily tip diary for U.S. service workers — with this deduction math built in. Log shifts free, forever; Pro does the tax packet.</p>
+    <a class="appbtn" href="https://apps.apple.com/us/app/tipdiary-tip-tracker/id6787304736">Download on the App Store<small>iPhone &amp; iPad</small></a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <div id="faq">
+    <details>
+      <summary>Which jobs qualify for the No Tax on Tips deduction?</summary>
+      <p>Only occupations that "customarily and regularly" receive tips — as listed by the Treasury Department and IRS — qualify. The list covers roles like bartenders, wait staff, hairstylists, nail technicians, delivery and rideshare drivers, musicians, and more. If your occupation isn't on the list, the deduction generally doesn't apply, even if you receive tips. Use the occupation picker above to check whether yours is included.</p>
+    </details>
+    <details>
+      <summary>How does the income phase-out work?</summary>
+      <p>The deduction starts to shrink once your modified adjusted gross income (MAGI) rises above $150,000 (single or head of household) or $300,000 (married filing jointly). For every full $1,000 you're over that threshold, the deduction is reduced by $100. The number of $1,000 steps is rounded down — so being $999 over the line doesn't reduce anything yet.</p>
+    </details>
+    <details>
+      <summary>How much can I deduct? Is there a cap?</summary>
+      <p>Yes. The maximum deduction is $25,000 per tax return, per year. Qualified tips above $25,000 don't add to the deduction (though they're still taxable income). The cap is before any income phase-out.</p>
+    </details>
+    <details>
+      <summary>I'm married filing separately — can I claim it?</summary>
+      <p>No. Married taxpayers who file separately are not eligible for the No Tax on Tips deduction. To claim it while married, you generally must file jointly.</p>
+    </details>
+    <details>
+      <summary>I'm self-employed — how is it different?</summary>
+      <p>If you're self-employed, your qualified-tips deduction can't be larger than your net profit from that tipped business. Also, tips earned in a "specified service trade or business" (SSTB) may not qualify at all. If you're unsure whether your work counts as an SSTB, check with a tax professional.</p>
+    </details>
+    <details>
+      <summary>Do cash tips count?</summary>
+      <p>Yes — cash tips still qualify, but only if they're reported. Tips you report to your employer show up on your W-2. Cash tips you didn't report to an employer may need to be reported yourself, typically on Form 4137. Unreported tips can't be deducted.</p>
+    </details>
+    <details>
+      <summary>I work for more than one employer — does that matter?</summary>
+      <p>The $25,000 cap is per tax return, not per job. Add up your qualified tips from every employer for the year; the deduction applies to the combined total, up to the cap.</p>
+    </details>
+    <details>
+      <summary>Does this get rid of Social Security and Medicare (FICA) taxes on tips?</summary>
+      <p>No. This is a federal income-tax deduction only. Social Security and Medicare (FICA) taxes — and any state or local taxes — still apply to your tips as usual.</p>
+    </details>
+    <details>
+      <summary>When does the No Tax on Tips deduction expire?</summary>
+      <p>Under current law (the OBBBA), the deduction applies to tax years 2025 through 2028. Unless it's extended, it isn't available after 2028.</p>
+    </details>
+    <details>
+      <summary>Is this the same as my tax software? Is it official?</summary>
+      <p>No. This is an independent estimate to help you plan. The actual deduction is claimed on your federal return (the IRS provides Schedule 1-A for it). We're not affiliated with the IRS or Treasury, and this tool is an estimate — not tax advice.</p>
+    </details>
+  </div>
+</main>
+
+<footer>
+  <div class="links">
+    <a href="privacy.html">Privacy</a>
+    <a href="switch-from-serverlife.html">Switch from ServerLife</a>
+    <a href="switch-from-tipsee.html">Switch from TipSee</a>
+    <a href="https://apps.apple.com/us/app/tipdiary-tip-tracker/id6787304736">App Store</a>
+  </div>
+  <p class="verified">Based on IRS/Treasury guidance, last verified <span id="verified">July 3, 2026</span>. Estimates only — not tax, legal, or accounting advice. TipDiary is not affiliated with the IRS or the U.S. Treasury.</p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Which jobs qualify for the No Tax on Tips deduction?","acceptedAnswer":{"@type":"Answer","text":"Only occupations that customarily and regularly receive tips — as listed by the Treasury Department and IRS — qualify. The list covers roles like bartenders, wait staff, hairstylists, nail technicians, delivery and rideshare drivers, and musicians. If your occupation isn't on the list, the deduction generally doesn't apply, even if you receive tips."}},
+    {"@type":"Question","name":"How does the income phase-out work?","acceptedAnswer":{"@type":"Answer","text":"The deduction shrinks once your modified adjusted gross income (MAGI) rises above $150,000 (single or head of household) or $300,000 (married filing jointly). For every full $1,000 you're over that threshold, the deduction is reduced by $100. The number of $1,000 steps is rounded down."}},
+    {"@type":"Question","name":"How much can I deduct? Is there a cap?","acceptedAnswer":{"@type":"Answer","text":"The maximum deduction is $25,000 per tax return, per year. Qualified tips above $25,000 don't add to the deduction, though they're still taxable income. The cap is applied before any income phase-out."}},
+    {"@type":"Question","name":"I'm married filing separately — can I claim it?","acceptedAnswer":{"@type":"Answer","text":"No. Married taxpayers who file separately are not eligible for the No Tax on Tips deduction. To claim it while married, you generally must file jointly."}},
+    {"@type":"Question","name":"I'm self-employed — how is it different?","acceptedAnswer":{"@type":"Answer","text":"If you're self-employed, your qualified-tips deduction can't be larger than your net profit from that tipped business. Tips earned in a specified service trade or business (SSTB) may not qualify at all. If unsure, check with a tax professional."}},
+    {"@type":"Question","name":"Do cash tips count?","acceptedAnswer":{"@type":"Answer","text":"Yes — cash tips still qualify, but only if they're reported. Tips reported to your employer appear on your W-2. Cash tips you didn't report to an employer may need to be reported yourself, typically on Form 4137. Unreported tips can't be deducted."}},
+    {"@type":"Question","name":"I work for more than one employer — does that matter?","acceptedAnswer":{"@type":"Answer","text":"The $25,000 cap is per tax return, not per job. Add up your qualified tips from every employer for the year; the deduction applies to the combined total, up to the cap."}},
+    {"@type":"Question","name":"Does this get rid of Social Security and Medicare (FICA) taxes on tips?","acceptedAnswer":{"@type":"Answer","text":"No. This is a federal income-tax deduction only. Social Security and Medicare (FICA) taxes, and any state or local taxes, still apply to your tips as usual."}},
+    {"@type":"Question","name":"When does the No Tax on Tips deduction expire?","acceptedAnswer":{"@type":"Answer","text":"Under current law (the OBBBA), the deduction applies to tax years 2025 through 2028. Unless extended, it isn't available after 2028."}},
+    {"@type":"Question","name":"Is this the same as my tax software? Is it official?","acceptedAnswer":{"@type":"Answer","text":"No. This is an independent estimate to help you plan. The actual deduction is claimed on your federal return (the IRS provides Schedule 1-A). We're not affiliated with the IRS or Treasury, and this tool is an estimate, not tax advice."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TipDiary — Tip Tracker",
+  "operatingSystem": "iOS",
+  "applicationCategory": "FinanceApplication",
+  "description": "A 30-second daily tip diary for U.S. service workers, with the No Tax on Tips deduction math and one-tap tax-packet export built in.",
+  "url": "https://apps.apple.com/us/app/tipdiary-tip-tracker/id6787304736",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+
+<script src="assets/engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  var RULES_URL = 'rules-v1.json';
+  // Same bands + midpoints as the app (App/TipTally/Support/FilingStatusMapping.swift).
+  var MAGI_MIDPOINT = {
+    below100k: '50000', from100kTo150k: '125000', from150kTo250k: '200000',
+    from250kTo400k: '325000', above400k: '500000'
+  };
+  var WARNING_TEXT = {
+    mfsIneligible: "Married filing separately isn't eligible for this deduction — that's why the estimate is $0.",
+    occupationNotOnList: "The occupation you picked isn't on the Treasury tipped-occupation list, so this deduction may not apply. Double-check the official list.",
+    occupationUnset: "Pick your occupation above to confirm it's on the Treasury tipped-occupation list — the deduction only applies to listed occupations.",
+    phaseOutApplies: "Your income is high enough that the deduction is partly phased out (see the phase-out reduction above).",
+    capReached: "You've reached the $25,000 annual cap. Tips above the cap are still taxable but don't increase the deduction.",
+    seNetProfitLimited: "As self-employed, your deduction is limited to your business net profit.",
+    magiUnknown: "Add your household income above for a sharper estimate — without it we show a wide 12%–24% savings band and can't apply the phase-out.",
+    sstbMayApply: "Self-employed in a specified service trade or business (SSTB)? This deduction may not apply — check with a tax pro.",
+    yearNotCovered: "This tax year isn't covered by the current rules.",
+    rulesStale: "Our tax-rules data may be out of date — check for the latest IRS guidance."
+  };
+
+  var rules = null;
+  var el = function (id) { return document.getElementById(id); };
+  var form = el('calc'), yearSel = el('year'), tipsInput = el('tips'), filingSel = el('filing'),
+      magiSel = el('magi'), occSel = el('occupation'), seCheck = el('se'), seWrap = el('seWrap'),
+      seNet = el('seNet'), resultCard = el('result'), resultBody = el('resultBody'),
+      placeholder = el('placeholder');
+
+  function formatMoney(dec) {
+    if (dec === null || dec === undefined) return '—';
+    var neg = dec.charAt(0) === '-';
+    var s = neg ? dec.slice(1) : dec;
+    var parts = s.split('.');
+    var intp = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    var out = '$' + intp + (parts[1] ? '.' + parts[1] : '');
+    return (neg ? '−' : '') + out;
+  }
+
+  function formatVerified(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    if (!m) return null;
+    var months = ['January','February','March','April','May','June','July',
+                  'August','September','October','November','December'];
+    return months[Number(m[2]) - 1] + ' ' + Number(m[3]) + ', ' + m[1];
+  }
+
+  function maxCheckedAt(r) {
+    var max = null;
+    (r.sources || []).forEach(function (s) { if (s.checkedAt && (!max || s.checkedAt > max)) max = s.checkedAt; });
+    return max;
+  }
+
+  function populateOccupations() {
+    var year = rules.taxYears['2026'] || rules.taxYears[Object.keys(rules.taxYears)[0]];
+    var occs = (year.occupations || []).slice().sort(function (a, b) {
+      return a.label.toLowerCase() < b.label.toLowerCase() ? -1 : a.label.toLowerCase() > b.label.toLowerCase() ? 1 : 0;
+    });
+    var frag = document.createDocumentFragment();
+    occs.forEach(function (o) {
+      var opt = document.createElement('option');
+      opt.value = o.id; opt.textContent = o.label;
+      frag.appendChild(opt);
+    });
+    occSel.appendChild(frag);
+  }
+
+  function currentInput() {
+    return {
+      taxYear: Number(yearSel.value),
+      filingStatus: filingSel.value,
+      qualifiedTipsYTD: tipsInput.value,
+      projectedAnnualQualifiedTips: null,
+      magiEstimate: magiSel.value ? MAGI_MIDPOINT[magiSel.value] : null,
+      isSelfEmployed: seCheck.checked,
+      selfEmploymentNetProfit: (seCheck.checked && seNet.value.trim() !== '') ? seNet.value : null,
+      occupationID: occSel.value || null
+    };
+  }
+
+  function hasTips() {
+    var cents = null;
+    try { cents = TipDiaryEngine._toCents(tipsInput.value); } catch (e) { cents = null; }
+    return cents !== null && cents > 0n;
+  }
+
+  function render(res) {
+    var savingsLine;
+    if (res.estimatedSavingsLow === res.estimatedSavingsHigh) {
+      savingsLine = formatMoney(res.estimatedSavingsLow);
+    } else {
+      savingsLine = formatMoney(res.estimatedSavingsLow) + ' – ' + formatMoney(res.estimatedSavingsHigh);
+    }
+
+    var html = '';
+    html += '<div class="result-lead"><span class="num">' + formatMoney(res.deductibleNow) + '</span>'
+          + '<span class="lbl">estimated deduction</span></div>';
+    html += '<div class="savings">Estimated federal tax savings: <b>' + savingsLine + '</b></div>';
+
+    html += '<div class="stats">';
+    html += '<div class="stat"><span class="k">Cap remaining</span><span class="v">'
+          + formatMoney(res.capRemaining) + ' of ' + formatMoney(res.capTotal) + '</span></div>';
+    if (res.phaseOutReduction && res.phaseOutReduction !== '0') {
+      html += '<div class="stat"><span class="k">Phase-out reduction</span><span class="v">−'
+            + formatMoney(res.phaseOutReduction) + '</span></div>';
+    }
+    html += '</div>';
+
+    if (res.warnings && res.warnings.length) {
+      html += '<div class="notes">';
+      res.warnings.forEach(function (w) {
+        var t = WARNING_TEXT[w];
+        if (t) html += '<div class="note">' + t + '</div>';
+      });
+      html += '</div>';
+    }
+
+    html += '<p class="disclaimer"><strong>Estimates only — not tax advice.</strong> '
+          + 'Your actual deduction depends on your full return and is claimed on IRS Schedule 1-A.</p>';
+
+    resultBody.innerHTML = html;
+    resultCard.classList.add('show');
+    placeholder.style.display = 'none';
+  }
+
+  function compute() {
+    if (!rules) return;
+    seWrap.classList.toggle('show', seCheck.checked);
+    if (!hasTips()) {
+      resultCard.classList.remove('show');
+      placeholder.style.display = '';
+      return;
+    }
+    var res = TipDiaryEngine.evaluate(rules, currentInput(), new Date());
+    render(res);
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); compute(); });
+  form.addEventListener('input', compute);
+  form.addEventListener('change', compute);
+
+  fetch(RULES_URL).then(function (r) {
+    if (!r.ok) throw new Error('rules HTTP ' + r.status);
+    return r.json();
+  }).then(function (data) {
+    rules = data;
+    populateOccupations();
+    var v = formatVerified(maxCheckedAt(rules));
+    if (v) el('verified').textContent = v;
+  }).catch(function (err) {
+    placeholder.textContent = 'Could not load the tax-rules data. Please refresh the page.';
+    if (window.console) console.error('TipDiary calculator:', err);
+  });
+})();
+</script>
+</body>
+</html>

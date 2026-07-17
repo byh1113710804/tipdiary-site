@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://byh1113710804.github.io/tipdiary-site/sitemap.xml
