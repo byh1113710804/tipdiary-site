@@ -206,6 +206,10 @@
       <p>No. Married taxpayers who file separately are not eligible for the No Tax on Tips deduction. To claim it while married, you generally must file jointly.</p>
     </details>
     <details>
+      <summary>Do I need a Social Security number to claim it?</summary>
+      <p>Yes. The deduction requires a valid Social Security number on your return — without one it can't be claimed. An ITIN (Individual Taxpayer Identification Number) is not an SSN and doesn't satisfy this requirement.</p>
+    </details>
+    <details>
       <summary>I'm self-employed — how is it different?</summary>
       <p>If you're self-employed, your qualified-tips deduction can't be larger than your net profit from that tipped business. Also, tips earned in a "specified service trade or business" (SSTB) may not qualify at all. If you're unsure whether your work counts as an SSTB, check with a tax professional.</p>
     </details>
@@ -251,6 +255,7 @@
     {"@type":"Question","name":"How does the income phase-out work?","acceptedAnswer":{"@type":"Answer","text":"The deduction shrinks once your modified adjusted gross income (MAGI) rises above $150,000 (single or head of household) or $300,000 (married filing jointly). For every full $1,000 you're over that threshold, the deduction is reduced by $100. The number of $1,000 steps is rounded down."}},
     {"@type":"Question","name":"How much can I deduct? Is there a cap?","acceptedAnswer":{"@type":"Answer","text":"The maximum deduction is $25,000 per tax return, per year. Qualified tips above $25,000 don't add to the deduction, though they're still taxable income. The cap is applied before any income phase-out."}},
     {"@type":"Question","name":"I'm married filing separately — can I claim it?","acceptedAnswer":{"@type":"Answer","text":"No. Married taxpayers who file separately are not eligible for the No Tax on Tips deduction. To claim it while married, you generally must file jointly."}},
+    {"@type":"Question","name":"Do I need a Social Security number to claim it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The deduction requires a valid Social Security number on your return — without one it can't be claimed. An ITIN (Individual Taxpayer Identification Number) is not an SSN and doesn't satisfy this requirement."}},
     {"@type":"Question","name":"I'm self-employed — how is it different?","acceptedAnswer":{"@type":"Answer","text":"If you're self-employed, your qualified-tips deduction can't be larger than your net profit from that tipped business. Tips earned in a specified service trade or business (SSTB) may not qualify at all. If unsure, check with a tax professional."}},
     {"@type":"Question","name":"Do cash tips count?","acceptedAnswer":{"@type":"Answer","text":"Yes — cash tips still qualify, but only if they're reported. Tips reported to your employer appear on your W-2. Cash tips you didn't report to an employer may need to be reported yourself, typically on Form 4137. Unreported tips can't be deducted."}},
     {"@type":"Question","name":"I work for more than one employer — does that matter?","acceptedAnswer":{"@type":"Answer","text":"The $25,000 cap is per tax return, not per job. Add up your qualified tips from every employer for the year; the deduction applies to the combined total, up to the cap."}},
@@ -327,10 +332,16 @@
     return max;
   }
 
+  // Rebuilds the occupation list for the currently selected tax year (keeps the
+  // "Not sure / not listed" placeholder and preserves the selection when possible).
   function populateOccupations() {
-    var year = rules.taxYears['2026'] || rules.taxYears[Object.keys(rules.taxYears)[0]];
-    var occs = (year.occupations || []).slice().sort(function (a, b) {
-      return a.label.toLowerCase() < b.label.toLowerCase() ? -1 : a.label.toLowerCase() > b.label.toLowerCase() ? 1 : 0;
+    if (!rules) return;
+    var year = rules.taxYears[yearSel.value] || rules.taxYears[Object.keys(rules.taxYears)[0]];
+    var prev = occSel.value;
+    while (occSel.options.length > 1) occSel.remove(1);
+    var occs = ((year && year.occupations) || []).slice().sort(function (a, b) {
+      var x = a.label.toLowerCase(), y = b.label.toLowerCase();
+      return x < y ? -1 : x > y ? 1 : 0;
     });
     var frag = document.createDocumentFragment();
     occs.forEach(function (o) {
@@ -339,6 +350,7 @@
       frag.appendChild(opt);
     });
     occSel.appendChild(frag);
+    if (prev) occSel.value = prev; // resets to "" automatically if not in the new list
   }
 
   function currentInput() {
@@ -349,7 +361,7 @@
       projectedAnnualQualifiedTips: null,
       magiEstimate: magiSel.value ? MAGI_MIDPOINT[magiSel.value] : null,
       isSelfEmployed: seCheck.checked,
-      selfEmploymentNetProfit: (seCheck.checked && seNet.value.trim() !== '') ? seNet.value : null,
+      selfEmploymentNetProfit: seCheck.checked ? safeMoney(seNet.value) : null,
       occupationID: occSel.value || null
     };
   }
@@ -360,7 +372,15 @@
     return cents !== null && cents > 0n;
   }
 
-  function render(res) {
+  // Safe parse for free-text money fields: unparseable input -> null (field ignored), never throws.
+  function safeMoney(raw) {
+    try {
+      var cents = TipDiaryEngine._toCents(raw);
+      return cents === null ? null : raw;
+    } catch (e) { return null; }
+  }
+
+  function render(res, extraNotes) {
     var savingsLine;
     if (res.estimatedSavingsLow === res.estimatedSavingsHigh) {
       savingsLine = formatMoney(res.estimatedSavingsLow);
@@ -382,12 +402,15 @@
     }
     html += '</div>';
 
-    if (res.warnings && res.warnings.length) {
+    var notes = [];
+    (res.warnings || []).forEach(function (w) {
+      var t = WARNING_TEXT[w];
+      if (t) notes.push(t);
+    });
+    (extraNotes || []).forEach(function (t) { notes.push(t); });
+    if (notes.length) {
       html += '<div class="notes">';
-      res.warnings.forEach(function (w) {
-        var t = WARNING_TEXT[w];
-        if (t) html += '<div class="note">' + t + '</div>';
-      });
+      notes.forEach(function (t) { html += '<div class="note">' + t + '</div>'; });
       html += '</div>';
     }
 
@@ -407,13 +430,19 @@
       placeholder.style.display = '';
       return;
     }
-    var res = TipDiaryEngine.evaluate(rules, currentInput(), new Date());
-    render(res);
+    var input = currentInput();
+    var extraNotes = [];
+    if (seCheck.checked && seNet.value.trim() !== '' && input.selfEmploymentNetProfit === null) {
+      extraNotes.push("We couldn't read the net-profit amount, so it was ignored — enter a plain number like 18,000.");
+    }
+    var res = TipDiaryEngine.evaluate(rules, input, new Date());
+    render(res, extraNotes);
   }
 
   form.addEventListener('submit', function (e) { e.preventDefault(); compute(); });
   form.addEventListener('input', compute);
   form.addEventListener('change', compute);
+  yearSel.addEventListener('change', populateOccupations); // fires before the form-level compute
 
   fetch(RULES_URL).then(function (r) {
     if (!r.ok) throw new Error('rules HTTP ' + r.status);
