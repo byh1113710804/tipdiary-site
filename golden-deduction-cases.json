@@ -1,0 +1,86 @@
+{
+  "_comment": "Golden deduction cases transcribed 1:1 from TipTally TaxEngine DeductionCalculatorTests.swift (Golden.cases). Expected values are the app's own golden values (hand-derived in that test, independent of the code under test). Money values are exact decimal strings. Warnings are camelCase tags matching the Swift RuleWarning enum case names. referenceDate == rules publishedAt so .rulesStale never fires (staleness is tested separately in the app, not here). Case numbering matches the Swift source (order preserved; note ⑭ is last in source).",
+  "referenceDate": "2026-07-03",
+  "cases": [
+    {
+      "name": "① Single, low income (no cap, no phase-out)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "8000", "projectedAnnualQualifiedTips": null, "magiEstimate": "35000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_102" },
+      "expected": { "deductibleNow": "8000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "17000", "phaseOutReduction": "0", "savingsLow": "960", "savingsHigh": "960", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": [] }
+    },
+    {
+      "name": "② Cap exactly reached (tips == cap)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "60000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "25000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "0", "savingsLow": "3000", "savingsHigh": "5500", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached"] }
+    },
+    {
+      "name": "③ Cap exceeded (tips > cap)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "30000", "projectedAnnualQualifiedTips": null, "magiEstimate": "60000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "25000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "0", "savingsLow": "3000", "savingsHigh": "5500", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached"] }
+    },
+    {
+      "name": "④ Phase-out mid-range (floor rounding: 25.5 -> 25 steps)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "175500", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "22500", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "2500", "savingsLow": "5400", "savingsHigh": "5400", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached", "phaseOutApplies"] }
+    },
+    {
+      "name": "⑤ Fully phased out (reduction >= capped -> deductible 0)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "400000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "0", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "25000", "savingsLow": "0", "savingsHigh": "0", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached", "phaseOutApplies"] }
+    },
+    {
+      "name": "⑥ Married filing separately -> ineligible (hard gate)",
+      "input": { "taxYear": 2026, "filingStatus": "marriedSeparate", "qualifiedTipsYTD": "10000", "projectedAnnualQualifiedTips": null, "magiEstimate": "40000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "0", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "15000", "phaseOutReduction": "0", "savingsLow": "0", "savingsHigh": "0", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["mfsIneligible"] }
+    },
+    {
+      "name": "⑦ Self-employed, net profit < tips (SE net-profit limit)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "20000", "projectedAnnualQualifiedTips": null, "magiEstimate": "30000", "isSelfEmployed": true, "selfEmploymentNetProfit": "12000", "occupationID": "ttoc_802" },
+      "expected": { "deductibleNow": "12000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "5000", "phaseOutReduction": "0", "savingsLow": "1440", "savingsHigh": "1440", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["seNetProfitLimited", "sstbMayApply"] }
+    },
+    {
+      "name": "⑧ Occupation not on Treasury list (warn, still compute)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "6000", "projectedAnnualQualifiedTips": null, "magiEstimate": "25000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_999" },
+      "expected": { "deductibleNow": "6000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "19000", "phaseOutReduction": "0", "savingsLow": "720", "savingsHigh": "720", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["occupationNotOnList"] }
+    },
+    {
+      "name": "⑨ MAGI unknown -> default 12%-24% savings band",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "15000", "projectedAnnualQualifiedTips": null, "magiEstimate": null, "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "15000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "10000", "phaseOutReduction": "0", "savingsLow": "1800", "savingsHigh": "3600", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["magiUnknown"] }
+    },
+    {
+      "name": "⑩ Married joint phase-out start (uses 300k, not 150k)",
+      "input": { "taxYear": 2026, "filingStatus": "marriedJoint", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "305000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "24500", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "500", "savingsLow": "5880", "savingsHigh": "5880", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached", "phaseOutApplies"] }
+    },
+    {
+      "name": "⑪ Phase-out boundary floor (excess 999 -> 0 steps, no phase-out)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "150999", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "25000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "0", "savingsLow": "6000", "savingsHigh": "6000", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached"] }
+    },
+    {
+      "name": "⑫ Head of household (single 150k start + HoH brackets)",
+      "input": { "taxYear": 2026, "filingStatus": "headOfHousehold", "qualifiedTipsYTD": "25000", "projectedAnnualQualifiedTips": null, "magiEstimate": "160000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "24000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "0", "phaseOutReduction": "1000", "savingsLow": "5760", "savingsHigh": "5760", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["capReached", "phaseOutApplies"] }
+    },
+    {
+      "name": "⑬ Projection (YTD 10000, projected annual 40000)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "10000", "projectedAnnualQualifiedTips": "40000", "magiEstimate": "60000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "10000", "projectedDeductible": "25000", "capTotal": "25000", "capRemaining": "15000", "phaseOutReduction": "0", "savingsLow": "1200", "savingsHigh": "2200", "projectedSavingsLow": "3000", "projectedSavingsHigh": "5500", "warnings": [] }
+    },
+    {
+      "name": "⑮ Self-employed, net profit >= tips -> only SSTB warning",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "8000", "projectedAnnualQualifiedTips": null, "magiEstimate": "30000", "isSelfEmployed": true, "selfEmploymentNetProfit": "50000", "occupationID": "ttoc_802" },
+      "expected": { "deductibleNow": "8000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "17000", "phaseOutReduction": "0", "savingsLow": "960", "savingsHigh": "960", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": ["sstbMayApply"] }
+    },
+    {
+      "name": "⑯ Projection + MAGI unknown (default band for both current and projected)",
+      "input": { "taxYear": 2026, "filingStatus": "single", "qualifiedTipsYTD": "5000", "projectedAnnualQualifiedTips": "30000", "magiEstimate": null, "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "5000", "projectedDeductible": "25000", "capTotal": "25000", "capRemaining": "20000", "phaseOutReduction": "0", "savingsLow": "600", "savingsHigh": "1200", "projectedSavingsLow": "3000", "projectedSavingsHigh": "6000", "warnings": ["magiUnknown"] }
+    },
+    {
+      "name": "⑭ 2027 brackets not yet published (year covered, savings 0/0, deductible still computed)",
+      "input": { "taxYear": 2027, "filingStatus": "single", "qualifiedTipsYTD": "10000", "projectedAnnualQualifiedTips": null, "magiEstimate": "30000", "isSelfEmployed": false, "selfEmploymentNetProfit": null, "occupationID": "ttoc_101" },
+      "expected": { "deductibleNow": "10000", "projectedDeductible": null, "capTotal": "25000", "capRemaining": "15000", "phaseOutReduction": "0", "savingsLow": "0", "savingsHigh": "0", "projectedSavingsLow": null, "projectedSavingsHigh": null, "warnings": [] }
+    }
+  ]
+}
