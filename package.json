@@ -1,0 +1,10 @@
+{
+  "name": "tipdiary-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "No Tax on Tips Calculator — static site for TipDiary. Numbers validated against the app TaxEngine golden cases.",
+  "type": "module",
+  "scripts": {
+    "test": "node test/run-tests.mjs"
+  }
+}
